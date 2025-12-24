@@ -1,1 +1,1 @@
-# MY_ODIN_PROJECT
+This is basic repo for projects i'll be doing in Odin's Curriculum
