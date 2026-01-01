@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: hsl(210, 36%, 96%);
+    margin: 10px 20px;
+    color: hsl(210, 8%, 10%);
+}
+
+div.container {
+    width: 100%;
+    margin: 20px auto;
+    border: 2px solid #333;
+    padding: 10px;
+    background-color: hsl(56, 81%, 56%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: red;
+    font-size: 20px;
+}
