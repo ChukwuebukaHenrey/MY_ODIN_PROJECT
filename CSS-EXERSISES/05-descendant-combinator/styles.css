@@ -10,7 +10,7 @@ body {
     color: hsl(210, 8%, 10%);
 }
 
-div.container {
+div p {
     width: 100%;
     margin: 20px auto;
     border: 2px solid #333;
@@ -19,4 +19,4 @@ div.container {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: red;
     font-size: 20px;
-}
+};

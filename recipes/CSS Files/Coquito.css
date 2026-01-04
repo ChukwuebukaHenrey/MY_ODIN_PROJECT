@@ -1,0 +1,43 @@
+html {
+  overflow: hidden;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #ca1616;
+  padding: 20px;
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  border: 2px solid #ca1616;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: auto;
+}
+
+nav .navlinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav .navlinks a {
+  text-decoration: none;
+  display: inline-block;
+  margin: 0px 10px;
+}
