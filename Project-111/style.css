@@ -204,7 +204,8 @@ nav {
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
-  /* gap: 25px; */
+  gap: 1.5rem;
+  padding: 1rem;
 }
 
 .movieCard {
