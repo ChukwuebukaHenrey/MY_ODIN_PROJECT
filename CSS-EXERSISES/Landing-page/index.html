@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <!-- Navigation Block -->
+      <nav>
+        <!-- FIX: Removed <p> inside <a> — block element inside inline is invalid HTML -->
+        <a id="logo" href="#">HEADER LOGO</a>
+
+        <!-- FIX: Added hamburger button for mobile -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="list-items" id="nav-menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Hero Section -->
+      <section class="hero">
+        <!-- FIX: Changed inner <section> to <div> — these are layout columns, not content sections -->
+        <div class="left-hero-section">
+          <p class="main-text">Welcome to <br />Our Page</p>
+          <p class="subtle-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum,
+            provident tempore. Optio, dolorem! Qui iure maiores nam ut
+            consequatur aperiam accusantium similique laborum amet, eos facilis
+            placeat quaerat velit dignissimos.
+          </p>
+          <button class="btn btn1">Get Started</button>
+        </div>
+
+        <div class="right-hero-section">
+          <div class="hero-image-wrapper">
+            <!-- FIX: Removed inline width="500px" attribute — CSS handles sizing -->
+            <img
+              class="hero-image"
+              src="/images/jollof.jpg"
+              alt="hero image"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Information Section -->
+      <section class="info-section">
+        <h1>some random information</h1>
+        <dixv class="info-div">
+          <div class="info-div-child">
+            <div class="card-image-wrapper">
+              <!-- FIX: Removed inline width attributes from all images -->
+              <img src="/images/ebuka.png" alt="Information image" />
+            </div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Temporibus sapiente obcaecati molestiae deserunt reprehenderit
+              voluptatum cum, possimus animi aspernatur maiores.
+            </p>
+          </div>
+          <div class="info-div-child">
+            <div class="card-image-wrapper">
+              <img src="/images/lasagna.jpg" alt="Information image" />
+            </div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Temporibus sapiente obcaecati molestiae deserunt reprehenderit
+              voluptatum cum, possimus animi aspernatur maiores.
+            </p>
+          </div>
+          <div class="info-div-child">
+            <div class="card-image-wrapper">
+              <img src="/images/jollof.jpg" alt="Information image" />
+            </div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Temporibus sapiente obcaecati molestiae deserunt reprehenderit
+              voluptatum cum, possimus animi aspernatur maiores.
+            </p>
+          </div>
+          <div class="info-div-child">
+            <div class="card-image-wrapper">
+              <img src="/images/yam.webp" alt="Information image" />
+            </div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Temporibus sapiente obcaecati molestiae deserunt reprehenderit
+              voluptatum cum, possimus animi aspernatur maiores.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quote Section -->
+      <section class="quote-section section">
+        <h1 class="main-quote">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat
+          deleniti iste similique magni minus, maxime, tempore harum veniam
+          obcaecati provident sunt itaque dolorem necessitatibus voluptas
+          doloribus, velit tempora laudantium delectus.
+        </h1>
+
+        <h2 class="speaker"><span></span>Ebuka Henry</h2>
+      </section>
+
+      <!-- CTA -->
+      <section class="section CTA-Section">
+        <div class="CTA-Container">
+          <div class="CTA-Text">
+            <p class="CTA-main-text">Call to action it's time!</p>
+            <p class="CTA-sub-text">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis,
+              culpa.
+            </p>
+          </div>
+
+          <div class="btn-container">
+            <button class="btn2">Sign Up</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        <p>Copyright &copy; Ebuka 2026</p>
+      </footer>
+    </main>
+
+    <script>
+      const hamburger = document.getElementById('hamburger');
+      const navMenu = document.getElementById('nav-menu');
+
+      hamburger.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', isOpen);
+        hamburger.classList.toggle('active');
+      });
+
+      // Close menu when a nav link is clicked
+      navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('open');
+          hamburger.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', false);
+        });
+      });
+    </script>
+  </body>
+</html>
