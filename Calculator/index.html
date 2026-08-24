@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="calculator.css" />
+    <script src="calculator.js" defer></script>
+    <title>Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist+Pixel&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>Calculator</h1>
+    <div id="calculatorBody">
+      <div class="calculatorBodywrapper">
+        <div class="display">
+          <span class="displayText"></span>
+        </div>
+        <div class="buttons">
+          <button class="btn number subOperator trig-btn" id="inv">2nd</button>
+          <button class="btn number subOperator trig-btn" id="angleButton">
+            DEG
+          </button>
+          <button
+            class="btn number subOperator trig-btn"
+            id="sin"
+            data-trig="sin"
+          >
+            Sin
+          </button>
+          <button
+            class="btn number subOperator trig-btn"
+            id="cos"
+            data-trig="cos"
+          >
+            Cos
+          </button>
+          <button
+            class="btn number subOperator trig-btn"
+            id="tan"
+            data-trig="tan"
+          >
+            Tan
+          </button>
+          <button class="btn number suboperator" id="powerbtn" data-value="^">
+            ^
+          </button>
+          <button class="btn number subOperator" id="log">Log</button>
+          <button class="btn number subOperator" id="in">In</button>
+          <button class="btn number subOperator" id="parenthesis-left">
+            (
+          </button>
+          <button class="btn number subOperator" id="parenthesis-right">
+            )
+          </button>
+          <button class="btn number suboperator" id="sqrt">√x</button>
+          <button class="btn number operator" id="clear">C</button>
+          <button class="btn number operator" id="delete">&#x232B;</button>
+          <button class="btn number operator" id="percentage">%</button>
+          <button class="btn number operator" id="multiply" data-value="*">
+            ×
+          </button>
+          <button class="btn number suboperator" id="factorial">x!</button>
+          <button class="btn number digit">1</button>
+          <button class="btn number digit">2</button>
+          <button class="btn number digit">3</button>
+          <button class="btn number operator" id="add" data-value="+">+</button>
+          <button class="btn suboperator" id="fraction">FR</button>
+
+          <button class="btn number digit">6</button>
+          <button class="btn number digit">4</button>
+          <button class="btn number digit">5</button>
+          <button class="btn number operator" id="subtract" data-value="-">
+            −
+          </button>
+          <button class="btn suboperator" id="PI">π</button>
+          <button class="btn number digit">9</button>
+
+          <button class="btn number digit">7</button>
+          <button class="btn number digit">8</button>
+
+          <button class="btn number operator" id="divide" data-value="/">
+            ÷
+          </button>
+          <button class="btn number suboperator" id="roundTo">R0</button>
+          <button class="btn suboperator" id="euler">e</button>
+          <button class="btn number digit">0</button>
+          <button class="btn number digit" id="decimalPoint">.</button>
+          <button class="btn operator" id="equals">=</button>
+        </div>
+      </div>
+      <p>
+        This calculator currently doesnt support implicit calculations as the
+        architecture is
+      </p>
+    </div>
+  </body>
+</html>
