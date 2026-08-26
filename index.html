@@ -1,605 +1,723 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Odin Project Showcase</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-primary: #0b0f17;
-      --bg-surface: #131b2a;
-      --bg-card: #182236;
-      --bg-card-hover: #1f2c45;
-      --border-subtle: #223049;
-      --border-highlight: #3b82f6;
-      --text-primary: #f8fafc;
-      --text-secondary: #94a3b8;
-      --text-muted: #64748b;
-      --accent-blue: #38bdf8;
-      --accent-indigo: #818cf8;
-      --accent-amber: #fbbf24;
-      --accent-emerald: #34d399;
-      --accent-rose: #fb7185;
-      --radius-sm: 8px;
-      --radius-md: 12px;
-      --radius-lg: 18px;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Odin Project Showcase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-primary: #0b0f17;
+        --bg-surface: #131b2a;
+        --bg-card: #182236;
+        --bg-card-hover: #1f2c45;
+        --border-subtle: #223049;
+        --border-highlight: #3b82f6;
+        --text-primary: #f8fafc;
+        --text-secondary: #94a3b8;
+        --text-muted: #64748b;
+        --accent-blue: #38bdf8;
+        --accent-indigo: #818cf8;
+        --accent-amber: #fbbf24;
+        --accent-emerald: #34d399;
+        --accent-rose: #fb7185;
+        --radius-sm: 8px;
+        --radius-md: 12px;
+        --radius-lg: 18px;
+      }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-/*Made a few modification here and there  */
-    body {
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      min-height: 100vh;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      padding: 0 0 60px 0;
-    }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      /*Made a few modification here and there  */
+      body {
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        font-family:
+          "Plus Jakarta Sans",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        min-height: 100vh;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        padding: 0 0 60px 0;
+      }
 
-    /* Container */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+      /* Container */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
 
-    /* Header */
-    header {
-      border-bottom: 1px solid var(--border-subtle);
-      background: var(--bg-surface);
-      padding: 56px 0 40px 0;
-      text-align: center;
-    }
+      /* Header */
+      header {
+        border-bottom: 1px solid var(--border-subtle);
+        background: var(--bg-surface);
+        padding: 56px 0 40px 0;
+        text-align: center;
+      }
 
-    .brand-badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 6px 16px;
-      background: rgba(56, 189, 248, 0.08);
-      border: 1px solid var(--border-subtle);
-      border-radius: 999px;
-      color: var(--accent-blue);
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
+      .brand-badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 16px;
+        background: rgba(56, 189, 248, 0.08);
+        border: 1px solid var(--border-subtle);
+        border-radius: 999px;
+        color: var(--accent-blue);
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
 
-    h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(32px, 5vw, 48px);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      color: var(--text-primary);
-      margin-bottom: 12px;
-      line-height: 1.15;
-    }
+      h1 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(32px, 5vw, 48px);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        color: var(--text-primary);
+        margin-bottom: 12px;
+        line-height: 1.15;
+      }
 
-    .subtitle {
-      font-size: 17px;
-      color: var(--text-secondary);
-      max-width: 640px;
-      margin: 0 auto 28px;
-    }
+      .subtitle {
+        font-size: 17px;
+        color: var(--text-secondary);
+        max-width: 640px;
+        margin: 0 auto 28px;
+      }
 
-    .quick-stats {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
+      .quick-stats {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
 
-    .stat-chip {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      color: var(--text-muted);
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      padding: 6px 14px;
-      border-radius: var(--radius-sm);
-    }
+      .stat-chip {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        color: var(--text-muted);
+        background: var(--bg-surface);
+        border: 1px solid var(--border-subtle);
+        padding: 6px 14px;
+        border-radius: var(--radius-sm);
+      }
 
-    .stat-chip strong {
-      color: var(--text-primary);
-    }
+      .stat-chip strong {
+        color: var(--text-primary);
+      }
 
-    /* Section Titles */
-    .section-header {
-      margin: 48px 0 24px 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+      /* Section Titles */
+      .section-header {
+        margin: 48px 0 24px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
 
-    .section-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 24px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--text-primary);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+      .section-title {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
 
-    .section-tag {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
+      .section-tag {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
 
-    /* Featured Projects Grid */
-    .featured-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
+      /* Featured Projects Grid */
+      .featured-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+      }
 
-    .project-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: all 0.25s ease;
-      position: relative;
-      overflow: hidden;
-      text-decoration: none;
-      color: inherit;
-    }
+      .project-card {
+        background: var(--bg-surface);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-lg);
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: all 0.25s ease;
+        position: relative;
+        overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+      }
 
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--card-accent, var(--accent-blue));
-      opacity: 0.8;
-      transition: opacity 0.2s ease;
-    }
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--card-accent, var(--accent-blue));
+        opacity: 0.8;
+        transition: opacity 0.2s ease;
+      }
 
-    .project-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(56, 189, 248, 0.4);
-      background: var(--bg-card);
-      box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.4);
-    }
+      .project-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(56, 189, 248, 0.4);
+        background: var(--bg-card);
+        box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.4);
+      }
 
-    .card-top {
-      margin-bottom: 20px;
-    }
+      .card-top {
+        margin-bottom: 20px;
+      }
 
-    .card-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: var(--radius-md);
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-subtle);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      margin-bottom: 16px;
-    }
+      .card-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: var(--radius-md);
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--border-subtle);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        margin-bottom: 16px;
+      }
 
-    .project-card h3 {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: var(--text-primary);
-    }
+      .project-card h3 {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: var(--text-primary);
+      }
 
-    .project-card p {
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.5;
-    }
+      .project-card p {
+        font-size: 14px;
+        color: var(--text-secondary);
+        line-height: 1.5;
+      }
 
-    .card-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 16px;
-    }
+      .card-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 16px;
+      }
 
-    .badge {
-      font-size: 11px;
-      font-weight: 600;
-      padding: 3px 8px;
-      border-radius: 4px;
-      background: rgba(255, 255, 255, 0.06);
-      color: var(--text-muted);
-    }
+      .badge {
+        font-size: 11px;
+        font-weight: 600;
+        padding: 3px 8px;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text-muted);
+      }
 
-    .card-bottom {
-      margin-top: 24px;
-      padding-top: 16px;
-      border-top: 1px solid var(--border-subtle);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+      .card-bottom {
+        margin-top: 24px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border-subtle);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
 
-    .action-link {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--accent-blue);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
+      .action-link {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--accent-blue);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
 
-    .project-card:hover .action-link {
-      color: #7dd3fc;
-    }
+      .project-card:hover .action-link {
+        color: #7dd3fc;
+      }
 
-    /* Exercises Section */
-    .exercises-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-    }
+      /* Exercises Section */
+      .exercises-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+      }
 
-    .exercise-item {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      text-decoration: none;
-      color: var(--text-primary);
-      transition: all 0.2s ease;
-    }
+      .exercise-item {
+        background: var(--bg-surface);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-md);
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-decoration: none;
+        color: var(--text-primary);
+        transition: all 0.2s ease;
+      }
 
-    .exercise-item:hover {
-      background: var(--bg-card);
-      border-color: rgba(56, 189, 248, 0.3);
-      transform: translateX(4px);
-    }
+      .exercise-item:hover {
+        background: var(--bg-card);
+        border-color: rgba(56, 189, 248, 0.3);
+        transform: translateX(4px);
+      }
 
-    .exercise-info {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+      .exercise-info {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
 
-    .exercise-num {
-      width: 28px;
-      height: 28px;
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.06);
-      color: var(--accent-blue);
-      font-size: 12px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+      .exercise-num {
+        width: 28px;
+        height: 28px;
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--accent-blue);
+        font-size: 12px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-    .exercise-title {
-      font-size: 14px;
-      font-weight: 600;
-    }
+      .exercise-title {
+        font-size: 14px;
+        font-weight: 600;
+      }
 
-    .exercise-arrow {
-      color: var(--text-muted);
-      font-size: 16px;
-      transition: transform 0.2s ease, color 0.2s ease;
-    }
+      .exercise-arrow {
+        color: var(--text-muted);
+        font-size: 16px;
+        transition:
+          transform 0.2s ease,
+          color 0.2s ease;
+      }
 
-    .exercise-item:hover .exercise-arrow {
-      color: var(--accent-blue);
-      transform: translateX(3px);
-    }
+      .exercise-item:hover .exercise-arrow {
+        color: var(--accent-blue);
+        transform: translateX(3px);
+      }
 
-    /* Footer */
-    footer {
-      margin-top: 60px;
-      text-align: center;
-      padding: 24px 0;
-      border-top: 1px solid var(--border-subtle);
-      color: var(--text-muted);
-      font-size: 13px;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <div class="container">
-      <div class="brand-badge">
-        The Odin Project Portfolio
+      /* Footer */
+      footer {
+        margin-top: 60px;
+        text-align: center;
+        padding: 24px 0;
+        border-top: 1px solid var(--border-subtle);
+        color: var(--text-muted);
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="brand-badge">The Odin Project Portfolio</div>
+        <h1>Project &amp; Exercise Showcase</h1>
+        <p class="subtitle">
+          Explore interactive web applications, JavaScript algorithms, recipe
+          collections, and responsive layout foundations.
+        </p>
+        <div class="quick-stats">
+          <div class="stat-chip">🎬 <strong>MovieHive</strong> Web App</div>
+          <div class="stat-chip">🧮 <strong>Scientific</strong> Calculator</div>
+          <div class="stat-chip">📖 <strong>5 Odin</strong> Recipes</div>
+          <div class="stat-chip">📐 <strong>15+ CSS</strong> Exercises</div>
+        </div>
       </div>
-      <h1>Project &amp; Exercise Showcase</h1>
-      <p class="subtitle">
-        Explore interactive web applications, JavaScript algorithms, recipe collections, and responsive layout foundations.
-      </p>
-      <div class="quick-stats">
-        <div class="stat-chip">🎬 <strong>MovieHive</strong> Web App</div>
-        <div class="stat-chip">🧮 <strong>Scientific</strong> Calculator</div>
-        <div class="stat-chip">📖 <strong>5 Odin</strong> Recipes</div>
-        <div class="stat-chip">📐 <strong>15+ CSS</strong> Exercises</div>
+    </header>
+
+    <main class="container">
+      <!-- Featured Projects -->
+      <div class="section-header">
+        <h2 class="section-title">✨ Featured Applications</h2>
+        <span class="section-tag">Core Modules</span>
       </div>
-    </div>
-  </header>
 
-  <main class="container">
-
-    <!-- Featured Projects -->
-    <div class="section-header">
-      <h2 class="section-title">✨ Featured Applications</h2>
-      <span class="section-tag">Core Modules</span>
-    </div>
-
-    <div class="featured-grid">
-      
-      <!-- MovieHive -->
-      <a href="/Project-111/index.html" class="project-card" style="--card-accent: #f43f5e;" id="card-moviehive">
-        <div class="card-top">
-          <div class="card-icon">🎬</div>
-          <h3>MovieHive</h3>
-          <p>Full cinema &amp; movie streaming UI with hero carousel, continue watching tray, upcoming releases, and language badges.</p>
-          <div class="card-meta">
-            <span class="badge">HTML5</span>
-            <span class="badge">CSS Grid &amp; Flex</span>
-            <span class="badge">FontAwesome</span>
+      <div class="featured-grid">
+        <!-- MovieHive -->
+        <a
+          href="/Project-111/index.html"
+          class="project-card"
+          style="--card-accent: #f43f5e"
+          id="card-moviehive"
+        >
+          <div class="card-top">
+            <div class="card-icon">🎬</div>
+            <h3>MovieHive</h3>
+            <p>
+              Full cinema &amp; movie streaming UI with hero carousel, continue
+              watching tray, upcoming releases, and language badges.
+            </p>
+            <div class="card-meta">
+              <span class="badge">HTML5</span>
+              <span class="badge">CSS Grid &amp; Flex</span>
+              <span class="badge">FontAwesome</span>
+            </div>
           </div>
-        </div>
-        <div class="card-bottom">
-          <span class="action-link">Launch MovieHive &rarr;</span>
-        </div>
-      </a>
-
-      <!-- Calculator -->
-      <a href="/Calculator/index.html" class="project-card" style="--card-accent: #38bdf8;" id="card-calculator">
-        <div class="card-top">
-          <div class="card-icon">🧮</div>
-          <h3>Scientific Calculator</h3>
-          <p>Interactive web calculator featuring trigonometric functions (Sin/Cos/Tan), logarithms, powers, factorials, roots, and DEG/RAD modes.</p>
-          <div class="card-meta">
-            <span class="badge">JavaScript</span>
-            <span class="badge">Scientific Math</span>
-            <span class="badge">DOM Events</span>
+          <div class="card-bottom">
+            <span class="action-link">Launch MovieHive &rarr;</span>
           </div>
-        </div>
-        <div class="card-bottom">
-          <span class="action-link">Launch Calculator &rarr;</span>
-        </div>
-      </a>
+        </a>
 
-      <!-- Recipes -->
-      <a href="/recipes/lasagna.html" class="project-card" style="--card-accent: #fbbf24;" id="card-recipes">
-        <div class="card-top">
-          <div class="card-icon">📖</div>
-          <h3>Odin Recipes Collection</h3>
-          <p>Curated collection of traditional recipes including Classic Lasagna, Jollof Rice, Yam Casserole, Fried Potatoes, and Coquito.</p>
-          <div class="card-meta">
-            <span class="badge">5 Recipes</span>
-            <span class="badge">Semantic HTML</span>
-            <span class="badge">Custom Styling</span>
+        <!-- Calculator -->
+        <a
+          href="/Calculator/index.html"
+          class="project-card"
+          style="--card-accent: #38bdf8"
+          id="card-calculator"
+        >
+          <div class="card-top">
+            <div class="card-icon">🧮</div>
+            <h3>Scientific Calculator</h3>
+            <p>
+              Interactive web calculator featuring trigonometric functions
+              (Sin/Cos/Tan), logarithms, powers, factorials, roots, and DEG/RAD
+              modes.
+            </p>
+            <div class="card-meta">
+              <span class="badge">JavaScript</span>
+              <span class="badge">Scientific Math</span>
+              <span class="badge">DOM Events</span>
+            </div>
           </div>
-        </div>
-        <div class="card-bottom">
-          <span class="action-link">Browse Recipes &rarr;</span>
-        </div>
-      </a>
-
-      <!-- Landing Page -->
-      <a href="/CSS-EXERSISES/Landing-page/index.html" class="project-card" style="--card-accent: #34d399;" id="card-landing">
-        <div class="card-top">
-          <div class="card-icon">🚀</div>
-          <h3>Landing Page Project</h3>
-          <p>Complete product landing page with mobile hamburger navigation, responsive hero column, card grid, quote banner, and CTA.</p>
-          <div class="card-meta">
-            <span class="badge">Responsive Design</span>
-            <span class="badge">Flexbox Layout</span>
-            <span class="badge">Mobile Menu</span>
+          <div class="card-bottom">
+            <span class="action-link">Launch Calculator &rarr;</span>
           </div>
-        </div>
-        <div class="card-bottom">
-          <span class="action-link">View Landing Page &rarr;</span>
-        </div>
-      </a>
+        </a>
 
-    </div>
+        <!-- Recipes -->
+        <a
+          href="/recipes/lasagna.html"
+          class="project-card"
+          style="--card-accent: #fbbf24"
+          id="card-recipes"
+        >
+          <div class="card-top">
+            <div class="card-icon">📖</div>
+            <h3>Odin Recipes Collection</h3>
+            <p>
+              Curated collection of traditional recipes including Classic
+              Lasagna, Jollof Rice, Yam Casserole, Fried Potatoes, and Coquito.
+            </p>
+            <div class="card-meta">
+              <span class="badge">5 Recipes</span>
+              <span class="badge">Semantic HTML</span>
+              <span class="badge">Custom Styling</span>
+            </div>
+          </div>
+          <div class="card-bottom">
+            <span class="action-link">Browse Recipes &rarr;</span>
+          </div>
+        </a>
 
-    <!-- Recipes Direct Access -->
-    <div class="section-header">
-      <h2 class="section-title">🍲 Recipe Menu</h2>
-      <span class="section-tag">Culinary Projects</span>
-    </div>
-    <div class="exercises-grid">
-      <a href="/recipes/lasagna.html" class="exercise-item" id="recipe-lasagna">
-        <div class="exercise-info">
-          <span class="exercise-num">01</span>
-          <span class="exercise-title">Classic Lasagna</span>
-        </div>
-        <span class="exercise-arrow">&rarr;</span>
-      </a>
-      <a href="/recipes/jollofRice.html" class="exercise-item" id="recipe-jollof">
-        <div class="exercise-info">
-          <span class="exercise-num">02</span>
-          <span class="exercise-title">Nigerian Jollof Rice</span>
-        </div>
-        <span class="exercise-arrow">&rarr;</span>
-      </a>
-      <a href="/recipes/yamCasserole.html" class="exercise-item" id="recipe-yam">
-        <div class="exercise-info">
-          <span class="exercise-num">03</span>
-          <span class="exercise-title">Yam Casserole</span>
-        </div>
-        <span class="exercise-arrow">&rarr;</span>
-      </a>
-      <a href="/recipes/friedPotatoes.html" class="exercise-item" id="recipe-potatoes">
-        <div class="exercise-info">
-          <span class="exercise-num">04</span>
-          <span class="exercise-title">Fried Potatoes</span>
-        </div>
-        <span class="exercise-arrow">&rarr;</span>
-      </a>
-      <a href="/recipes/Coquito.html" class="exercise-item" id="recipe-coquito">
-        <div class="exercise-info">
-          <span class="exercise-num">05</span>
-          <span class="exercise-title">Puerto Rican Coquito</span>
-        </div>
-        <span class="exercise-arrow">&rarr;</span>
-      </a>
-    </div>
+        <!-- Landing Page -->
+        <a
+          href="/CSS-EXERSISES/Landing-page/index.html"
+          class="project-card"
+          style="--card-accent: #34d399"
+          id="card-landing"
+        >
+          <div class="card-top">
+            <div class="card-icon">🚀</div>
+            <h3>Landing Page Project</h3>
+            <p>
+              Complete product landing page with mobile hamburger navigation,
+              responsive hero column, card grid, quote banner, and CTA.
+            </p>
+            <div class="card-meta">
+              <span class="badge">Responsive Design</span>
+              <span class="badge">Flexbox Layout</span>
+              <span class="badge">Mobile Menu</span>
+            </div>
+          </div>
+          <div class="card-bottom">
+            <span class="action-link">View Landing Page &rarr;</span>
+          </div>
+        </a>
+      </div>
 
-    <!-- CSS Exercises -->
-    <div class="section-header">
-      <h2 class="section-title">📐 CSS &amp; Flexbox Mastery Exercises</h2>
-      <span class="section-tag">Foundations</span>
-    </div>
+      <!-- Recipes Direct Access -->
+      <div class="section-header">
+        <h2 class="section-title">🍲 Recipe Menu</h2>
+        <span class="section-tag">Culinary Projects</span>
+      </div>
+      <div class="exercises-grid">
+        <a
+          href="/recipes/lasagna.html"
+          class="exercise-item"
+          id="recipe-lasagna"
+        >
+          <div class="exercise-info">
+            <span class="exercise-num">01</span>
+            <span class="exercise-title">Classic Lasagna</span>
+          </div>
+          <span class="exercise-arrow">&rarr;</span>
+        </a>
+        <a
+          href="/recipes/jollofRice.html"
+          class="exercise-item"
+          id="recipe-jollof"
+        >
+          <div class="exercise-info">
+            <span class="exercise-num">02</span>
+            <span class="exercise-title">Nigerian Jollof Rice</span>
+          </div>
+          <span class="exercise-arrow">&rarr;</span>
+        </a>
+        <a
+          href="/recipes/yamCasserole.html"
+          class="exercise-item"
+          id="recipe-yam"
+        >
+          <div class="exercise-info">
+            <span class="exercise-num">03</span>
+            <span class="exercise-title">Yam Casserole</span>
+          </div>
+          <span class="exercise-arrow">&rarr;</span>
+        </a>
+        <a
+          href="/recipes/friedPotatoes.html"
+          class="exercise-item"
+          id="recipe-potatoes"
+        >
+          <div class="exercise-info">
+            <span class="exercise-num">04</span>
+            <span class="exercise-title">Fried Potatoes</span>
+          </div>
+          <span class="exercise-arrow">&rarr;</span>
+        </a>
+        <a
+          href="/recipes/Coquito.html"
+          class="exercise-item"
+          id="recipe-coquito"
+        >
+          <div class="exercise-info">
+            <span class="exercise-num">05</span>
+            <span class="exercise-title">Puerto Rican Coquito</span>
+          </div>
+          <span class="exercise-arrow">&rarr;</span>
+        </a>
+      </div>
 
-    <div class="exercises-grid">
-      <a href="/CSS-EXERSISES/flex/01-flex-center/index.html" class="exercise-item" id="flex-01">
-        <div class="exercise-info">
-          <span class="exercise-num">01</span>
-          <span class="exercise-title">Flex Center Alignment</span>
-        </div>
-        <span class="exercise-arrow">&rarr;</span>
-      </a>
+      <!-- CSS Exercises -->
+      <div class="section-header">
+        <h2 class="section-title">📐 CSS &amp; Flexbox Mastery Exercises</h2>
+        <span class="section-tag">Foundations</span>
+      </div>
 
-      <a href="/CSS-EXERSISES/flex/02-flex-header/index.html" class="exercise-item" id="flex-02">
-        <div class="exercise-info">
-          <span class="exercise-num">02</span>
-          <span class="exercise-title">Flex Header Layout 1</span>
-        </div>
-        <span class="exercise-arrow">&rarr;</span>
-      </a>
+      <div class="exercises-grid">
+        <a
+          href="/CSS-EXERSISES/flex/01-flex-center/index.html"
+          class="exercise-item"
+          id="flex-01"
+        >
+          <div class="exercise-info">
+            <span class="exercise-num">01</span>
+            <span class="exercise-title">Flex Center Alignment</span>
+          </div>
+          <span class="exercise-arrow">&rarr;</span>
+        </a>
 
-      <a href="/CSS-EXERSISES/flex/03-flex-header-2/index.html" class="exercise-item" id="flex-03">
-        <div class="exercise-info">
-          <span class="exercise-num">03</span>
-          <span class="exercise-title">Flex Header Layout 2</span>
-        </div>
-        <span class="exercise-arrow">&rarr;</span>
-      </a>
+        <a
+          href="/CSS-EXERSISES/flex/02-flex-header/index.html"
+          class="exercise-item"
+          id="flex-02"
+        >
+          <div class="exercise-info">
+            <span class="exercise-num">02</span>
+            <span class="exercise-title">Flex Header Layout 1</span>
+          </div>
+          <span class="exercise-arrow">&rarr;</span>
+        </a>
 
-      <a href="/CSS-EXERSISES/flex/04-flex-information/index.html" class="exercise-item" id="flex-04">
-        <div class="exercise-info">
-          <span class="exercise-num">04</span>
-          <span class="exercise-title">Flex Information Cards</span>
-        </div>
-        <span class="exercise-arrow">&rarr;</span>
-      </a>
+        <a
+          href="/CSS-EXERSISES/flex/03-flex-header-2/index.html"
+          class="exercise-item"
+          id="flex-03"
+        >
+          <div class="exercise-info">
+            <span class="exercise-num">03</span>
+            <span class="exercise-title">Flex Header Layout 2</span>
+          </div>
+          <span class="exercise-arrow">&rarr;</span>
+        </a>
 
-      <a href="/CSS-EXERSISES/flex/05-flex-modal/index.html" class="exercise-item" id="flex-05">
-        <div class="exercise-info">
-          <span class="exercise-num">05</span>
-          <span class="exercise-title">Flex Modal Component</span>
-        </div>
-        <span class="exercise-arrow">&rarr;</span>
-      </a>
+        <a
+          href="/CSS-EXERSISES/flex/04-flex-information/index.html"
+          class="exercise-item"
+          id="flex-04"
+        >
+          <div class="exercise-info">
+            <span class="exercise-num">04</span>
+            <span class="exercise-title">Flex Information Cards</span>
+          </div>
+          <span class="exercise-arrow">&rarr;</span>
+        </a>
 
-      <a href="/CSS-EXERSISES/flex/06-flex-layout/index.html" class="exercise-item" id="flex-06">
-        <div class="exercise-info">
-          <span class="exercise-num">06</span>
-          <span class="exercise-title">Full Flex Web Layout</span>
-        </div>
-        <span class="exercise-arrow">&rarr;</span>
-      </a>
+        <a
+          href="/CSS-EXERSISES/flex/05-flex-modal/index.html"
+          class="exercise-item"
+          id="flex-05"
+        >
+          <div class="exercise-info">
+            <span class="exercise-num">05</span>
+            <span class="exercise-title">Flex Modal Component</span>
+          </div>
+          <span class="exercise-arrow">&rarr;</span>
+        </a>
 
-      <a href="/CSS-EXERSISES/flex/07-flex-layout-2/index.html" class="exercise-item" id="flex-07">
-        <div class="exercise-info">
-          <span class="exercise-num">07</span>
-          <span class="exercise-title">Holy Grail Layout</span>
-        </div>
-        <span class="exercise-arrow">&rarr;</span>
-      </a>
+        <a
+          href="/CSS-EXERSISES/flex/06-flex-layout/index.html"
+          class="exercise-item"
+          id="flex-06"
+        >
+          <div class="exercise-info">
+            <span class="exercise-num">06</span>
+            <span class="exercise-title">Full Flex Web Layout</span>
+          </div>
+          <span class="exercise-arrow">&rarr;</span>
+        </a>
 
-      <a href="/CSS-EXERSISES/block-and-inline/01-margin-and-padding-1/index.html" class="exercise-item" id="block-01">
-        <div class="exercise-info">
-          <span class="exercise-num">08</span>
-          <span class="exercise-title">Margin &amp; Padding I</span>
-        </div>
-        <span class="exercise-arrow">&rarr;</span>
-      </a>
+        <a
+          href="/CSS-EXERSISES/flex/07-flex-layout-2/index.html"
+          class="exercise-item"
+          id="flex-07"
+        >
+          <div class="exercise-info">
+            <span class="exercise-num">07</span>
+            <span class="exercise-title">Holy Grail Layout</span>
+          </div>
+          <span class="exercise-arrow">&rarr;</span>
+        </a>
 
-      <a href="/CSS-EXERSISES/block-and-inline/02-margin-and-padding-2/index.html" class="exercise-item" id="block-02">
-        <div class="exercise-info">
-          <span class="exercise-num">09</span>
-          <span class="exercise-title">Margin &amp; Padding II (Card)</span>
-        </div>
-        <span class="exercise-arrow">&rarr;</span>
-      </a>
+        <a
+          href="/CSS-EXERSISES/block-and-inline/01-margin-and-padding-1/index.html"
+          class="exercise-item"
+          id="block-01"
+        >
+          <div class="exercise-info">
+            <span class="exercise-num">08</span>
+            <span class="exercise-title">Margin &amp; Padding I</span>
+          </div>
+          <span class="exercise-arrow">&rarr;</span>
+        </a>
 
-      <a href="/CSS-EXERSISES/01-cascade-fix/index.html" class="exercise-item" id="css-01">
-        <div class="exercise-info">
-          <span class="exercise-num">10</span>
-          <span class="exercise-title">Cascade &amp; Specificity Fix</span>
-        </div>
-        <span class="exercise-arrow">&rarr;</span>
-      </a>
+        <a
+          href="/CSS-EXERSISES/block-and-inline/02-margin-and-padding-2/index.html"
+          class="exercise-item"
+          id="block-02"
+        >
+          <div class="exercise-info">
+            <span class="exercise-num">09</span>
+            <span class="exercise-title">Margin &amp; Padding II (Card)</span>
+          </div>
+          <span class="exercise-arrow">&rarr;</span>
+        </a>
 
-      <a href="/CSS-EXERSISES/01-css-methods/index.html" class="exercise-item" id="css-02">
-        <div class="exercise-info">
-          <span class="exercise-num">11</span>
-          <span class="exercise-title">External vs Internal Styling</span>
-        </div>
-        <span class="exercise-arrow">&rarr;</span>
-      </a>
+        <a
+          href="/CSS-EXERSISES/01-cascade-fix/index.html"
+          class="exercise-item"
+          id="css-01"
+        >
+          <div class="exercise-info">
+            <span class="exercise-num">10</span>
+            <span class="exercise-title">Cascade &amp; Specificity Fix</span>
+          </div>
+          <span class="exercise-arrow">&rarr;</span>
+        </a>
 
-      <a href="/CSS-EXERSISES/02-class-id-selectors/index.html" class="exercise-item" id="css-03">
-        <div class="exercise-info">
-          <span class="exercise-num">12</span>
-          <span class="exercise-title">Class &amp; ID Selectors</span>
-        </div>
-        <span class="exercise-arrow">&rarr;</span>
-      </a>
+        <a
+          href="/CSS-EXERSISES/01-css-methods/index.html"
+          class="exercise-item"
+          id="css-02"
+        >
+          <div class="exercise-info">
+            <span class="exercise-num">11</span>
+            <span class="exercise-title">External vs Internal Styling</span>
+          </div>
+          <span class="exercise-arrow">&rarr;</span>
+        </a>
 
-      <a href="/CSS-EXERSISES/03-grouping-selectors/index.html" class="exercise-item" id="css-04">
-        <div class="exercise-info">
-          <span class="exercise-num">13</span>
-          <span class="exercise-title">Grouping Selectors</span>
-        </div>
-        <span class="exercise-arrow">&rarr;</span>
-      </a>
+        <a
+          href="/CSS-EXERSISES/02-class-id-selectors/index.html"
+          class="exercise-item"
+          id="css-03"
+        >
+          <div class="exercise-info">
+            <span class="exercise-num">12</span>
+            <span class="exercise-title">Class &amp; ID Selectors</span>
+          </div>
+          <span class="exercise-arrow">&rarr;</span>
+        </a>
 
-      <a href="/CSS-EXERSISES/04-chaining-selectors/index.html" class="exercise-item" id="css-05">
-        <div class="exercise-info">
-          <span class="exercise-num">14</span>
-          <span class="exercise-title">Chaining Selectors</span>
-        </div>
-        <span class="exercise-arrow">&rarr;</span>
-      </a>
+        <a
+          href="/CSS-EXERSISES/03-grouping-selectors/index.html"
+          class="exercise-item"
+          id="css-04"
+        >
+          <div class="exercise-info">
+            <span class="exercise-num">13</span>
+            <span class="exercise-title">Grouping Selectors</span>
+          </div>
+          <span class="exercise-arrow">&rarr;</span>
+        </a>
 
-      <a href="/CSS-EXERSISES/05-descendant-combinator/index.html" class="exercise-item" id="css-06">
-        <div class="exercise-info">
-          <span class="exercise-num">15</span>
-          <span class="exercise-title">Descendant Combinators</span>
-        </div>
-        <span class="exercise-arrow">&rarr;</span>
-      </a>
-    </div>
+        <a
+          href="/CSS-EXERSISES/04-chaining-selectors/index.html"
+          class="exercise-item"
+          id="css-05"
+        >
+          <div class="exercise-info">
+            <span class="exercise-num">14</span>
+            <span class="exercise-title">Chaining Selectors</span>
+          </div>
+          <span class="exercise-arrow">&rarr;</span>
+        </a>
 
-  </main>
+        <a
+          href="/CSS-EXERSISES/05-descendant-combinator/index.html"
+          class="exercise-item"
+          id="css-06"
+        >
+          <div class="exercise-info">
+            <span class="exercise-num">15</span>
+            <span class="exercise-title">Descendant Combinators</span>
+          </div>
+          <span class="exercise-arrow">&rarr;</span>
+        </a>
+      </div>
+    </main>
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2026 Chukwuebuka Henry &bull; The Odin Project Portfolio</p>
-    </div>
-  </footer>
-
-</body>
+    <footer>
+      <div class="container">
+        <p>&copy; 2026 Chukwuebuka Henry &bull; The Odin Project Portfolio</p>
+      </div>
+    </footer>
+  </body>
 </html>
+<!-- I'm still working on a few things so dont get to excited -->
