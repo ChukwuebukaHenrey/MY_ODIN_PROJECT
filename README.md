@@ -6,7 +6,7 @@ This repository demonstrates mastery of core frontend web technologies: semantic
 
 ---
 
-## 🌟 Featured Projects Overview
+## Featured Projects Overview
 
 ### 1. [MovieHive (Streaming UI)](./Project-111/README.md)
 * **Location**: `/Project-111`
@@ -30,7 +30,7 @@ This repository demonstrates mastery of core frontend web technologies: semantic
 
 ---
 
-## 🚀 Running the Project Locally
+##  Running the Project Locally
 
 This project includes a unified Express server (`server.js`) configured on port `3000` to serve all projects and the interactive directory hub.
 
