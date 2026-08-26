@@ -1,0 +1,6 @@
+{
+  "name": "Odin Project Showcase",
+  "description": "Interactive showcase for Odin Project creations including MovieHive streaming app, Scientific Calculator, Recipes collection, and CSS exercise series.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

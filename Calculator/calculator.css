@@ -174,3 +174,12 @@ body {
     height: 3.5em;
   }
 }
+
+.calculator-note {
+  max-width: clamp(250px, 40%, 400px);
+  text-align: center;
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
