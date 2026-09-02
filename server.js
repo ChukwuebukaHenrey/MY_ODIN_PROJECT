@@ -19,8 +19,12 @@ app.get('/landing', (req, res) => res.redirect('/CSS-EXERSISES/Landing-page/inde
 // Serve all static project files
 app.use(express.static(__dirname));
 
-// Fallback to main hub index
+// Fallback to main hub index, but let missing files 404 loudly instead of masquerading as the hub
 app.get('*', (req, res) => {
+  const lastSegment = req.path.split('/').pop() || '';
+  if (lastSegment.includes('.')) {
+    return res.status(404).send('Not found');
+  }
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
