@@ -26,6 +26,7 @@ const eulerButton = document.getElementById("euler");
 const logButton = document.getElementById("log");
 const naLogButton = document.getElementById("in");
 const rounding = document.getElementById("roundTo");
+const fractionButton = document.getElementById("fraction");
 let expression = "";
 
 const addNumbers = (...values) =>
@@ -100,7 +101,6 @@ const trigFunctions = {
 
 const trigInverseToggle = () => {
   inversemode = !inversemode;
-  console.log(inversemode);
 
   updateTrigUI();
 };
@@ -168,12 +168,6 @@ function handleTangent(value) {
   return tangent(value);
 }
 
-// Just a random fn for testing code and finding bugs
-function bob() {
-  console.log(Math.E);
-  console.log(Math.PI);
-}
-
 inverseTrig.addEventListener("click", () => {
   trigInverseToggle();
 });
@@ -227,11 +221,6 @@ rounding.addEventListener("click", () => {
   const result = displayText.textContent;
   expression = round(result);
   displayText.textContent = expression;
-  console.log(expression);
-
-  console.log(round(expression));
-
-  console.log("btn clicked");
 });
 
 numbers.forEach((number) =>
@@ -250,13 +239,17 @@ eulerButton.addEventListener("click", () => {
   expression += "e";
 });
 
+fractionButton.addEventListener("click", () => {
+  displayText.textContent += "1/(";
+  expression += "1/(";
+});
+
 clearButton.addEventListener("click", () => {
   displayText.textContent = "";
   expression = "";
 });
 
 deleteButton.addEventListener("click", () => {
-  console.log("deleted");
   displayText.textContent = displayText.textContent.slice(0, -1);
   expression = expression.slice(0, -1);
 });
@@ -312,10 +305,7 @@ parenthesisLeftButton.addEventListener("click", () => {
 });
 
 const evaluate = (expression) => {
-  console.log(expression);
-
   const cleaned = expression.replace(/\s+/g, "");
-  console.log(cleaned);
   const functions = [
     "sqrt",
     "factorial",
@@ -331,8 +321,6 @@ const evaluate = (expression) => {
       /(\d+\.\d*|\.\d+|\d+|sqrt|percentage|factorial|round|sin|cos|tan|log|e|In|pi|[+\-*/^()])/g;
     const tokens = cleaned.match(regex);
 
-    console.log(tokens);
-
     if (!tokens) {
       throw new Error("Invalid Input");
     }
@@ -346,7 +334,6 @@ const evaluate = (expression) => {
   }
 
   const cleanedToken = tokenization(cleaned);
-  console.log(cleanedToken);
 
   const precedence = {
     "+": 1,
@@ -448,7 +435,6 @@ const evaluate = (expression) => {
     if (!isNaN(token)) {
       // 1. If it's a number, push to values
       values.push(Number(token));
-      console.table(values);
     } else if (token === "pi") {
       values.push(Math.PI);
     } else if (token === "e") {
@@ -493,8 +479,59 @@ const evaluate = (expression) => {
   return values.pop();
 };
 
+const isNumeric = (value) =>
+  typeof value === "number" && Number.isFinite(value);
+
 equalsButton.addEventListener("click", () => {
-  const result = evaluate(expression);
-  displayText.textContent = result;
-  expression = String(result);
+  if (!expression) return;
+  let result;
+  try {
+    result = evaluate(expression);
+  } catch {
+    result = "Invalid Input";
+  }
+  displayText.textContent = isNumeric(result) ? result : result || "Invalid Input";
+  expression = isNumeric(result) ? String(result) : "";
+});
+
+const appendToExpression = (displayTextValue, expressionValue) => {
+  displayText.textContent += displayTextValue;
+  expression += expressionValue;
+};
+
+document.addEventListener("keydown", (event) => {
+  const { key } = event;
+
+  if (key >= "0" && key <= "9") {
+    appendToExpression(key, key);
+  } else if (key === ".") {
+    appendToExpression(".", ".");
+  } else if (key === "+") {
+    appendToExpression("+", "+");
+  } else if (key === "-") {
+    appendToExpression("−", "-");
+  } else if (key === "*" || key === "x" || key === "X") {
+    appendToExpression("×", "*");
+  } else if (key === "/") {
+    appendToExpression("÷", "/");
+  } else if (key === "^") {
+    appendToExpression("^", "^");
+  } else if (key === "(") {
+    appendToExpression("(", "(");
+  } else if (key === ")") {
+    appendToExpression(")", ")");
+  } else if (key === "%") {
+    appendToExpression("%(", "percentage(");
+  } else if (key === "p" || key === "P") {
+    appendToExpression("π", "pi");
+  } else if (key === "Enter" || key === "=") {
+    equalsButton.click();
+  } else if (key === "Backspace" || key === "Delete") {
+    deleteButton.click();
+  } else if (key === "Escape" || key === "c" || key === "C") {
+    clearButton.click();
+  } else {
+    return;
+  }
+  event.preventDefault();
 });
